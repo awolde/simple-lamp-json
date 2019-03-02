@@ -1,10 +1,10 @@
 <?php
 // Database connection parameters
-$db_hostname = "localhost";
+$db_hostname = "db";
 $db_port     = 3306;
 $db_database = "employees";
-$db_username = "username";
-$db_password = "password";
+$db_username = "root";
+$db_password = "example";
 
 // Image upload options
 $storage_option = "hd";

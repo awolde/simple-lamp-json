@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: employees
+    volumes:
+      - ./test_db:/docker-entrypoint-initdb.d
+  app:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html/
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+volumes:
+  test_db:
