@@ -10,6 +10,8 @@ services:
     volumes:
       - ./test_db:/docker-entrypoint-initdb.d
   app:
+    deploy:
+      replicas: 2
     build: .
     ports:
       - 8080:80
@@ -19,5 +21,6 @@ services:
       - db
     environment:
       DB_HOST: db
+      DB_PASS: example
 volumes:
   test_db:
