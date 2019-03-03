@@ -30,3 +30,9 @@ To stop the stack:
 ```
 docker-compose down
 ```
+## Using Siege
+Build siege container from `Dockerfile.siege` file and stage an attack.
+```
+docker build -t siege . -f Dockerfile.siege
+docker run -ti siege siege -d0 -r40 -c20 http://localhost:8080/?count=1
+```
